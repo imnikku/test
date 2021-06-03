@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+
+import { EvenNumber } from "./EvenNumber";
+import { consecutive } from "./consecutive";
+import { Duplicate } from "./Duplicate";
+import { FatchApi } from "./Fatch";
+import { Menu } from "./Menu";
+import { ObjectSort } from "./objectsort";
+import { TodoList } from "./TodoList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Menu />
+      <Switch>
+        <Route exact path="/" component={EvenNumber} />
+        <Route exact path="/consecutive" component={consecutive} />
+        <Route exact path="/duplicate" component={Duplicate} />
+        <Route exact path="/fatchapi" component={FatchApi} />
+        <Route exact path="/objectsort" component={ObjectSort} />
+        <Route exact path="/todolist" component={TodoList} />
+      </Switch>
     </div>
   );
 }
